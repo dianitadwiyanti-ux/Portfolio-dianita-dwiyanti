@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & Order Automation Dashboard | Dianita Dwiyanti</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --bg-color: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --border-color: #E0E0E0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--text-main);
+        }
+
+        .project-header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            background: #EAEAEA;
+            color: var(--text-main);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .content-card h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .content-card p, .content-card li {
+            color: #333333;
+            font-size: 0.98rem;
+            margin-bottom: 12px;
+        }
+
+        .content-card ul {
+            margin-left: 20px;
+        }
+
+        .content-card li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #F1F1F1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Comparison Table Before vs After */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .comparison-table th {
+            background: #F8F9FA;
+            font-weight: 600;
+        }
+
+        .btn-github {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: var(--text-main);
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-github:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- BACK LINK TO MAIN PORTFOLIO -->
+        <a href="../WEB_UTAMA.html" class="back-link">&larr; Back to Main Portfolio</a>
+        
+        <div class="project-header">
+            <h1>Sales &amp; Order Automation Dashboard for UMKM Peyek Goyang</h1>
+            <div class="tags">
+                <span class="tag">Microsoft Excel</span>
+                <span class="tag">Advanced Formulas</span>
+                <span class="tag">Pivot Table &amp; Charts</span>
+                <span class="tag">XLOOKUP</span>
+            </div>
+        </div>
+
+        <!-- 1. BUSINESS OVERVIEW -->
+        <div class="content-card">
+            <h2>📌 Business Overview &amp; Problem Statement</h2>
+            <p><strong>UMKM Peyek Goyang</strong> is a micro-enterprise operating in the snack culinary sector. Prior to this project, all daily transaction recording and recapitulation workflows were done entirely manually using <strong>paper-based logbooks</strong>.</p>
+            <p>This manual process posed several critical bottlenecks:</p>
+            <ul>
+                <li><strong>High Risk of Human Error:</strong> Manually calculating total prices and order quantities led frequent calculation mistakes.</li>
+                <li><strong>Time Inefficiency:</strong> It took 2–3 hours per day just to calculate total revenue and organize daily records.</li>
+                <li><strong>Difficulty in Extracting Insights:</strong> The business owner struggled to monitor daily/monthly revenues, sales timing trends, and top-performing product variants in real-time.</li>
+            </ul>
+        </div>
+
+        <!-- 2. TRANSFORMATION: BEFORE VS AFTER -->
+        <div class="content-card">
+            <h2>📸 Transformation: Before vs After</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Before (Manual Logbook)</th>
+                        <th>After (Automated Excel Database &amp; Dashboard)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Physical notes in paper logs, prone to damage, unstructured, and high risk of miscalculation.</td>
+                        <td>Structured relational database system in Excel, automated formulas, and interactive visual dashboards.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. ARCHITECTURE & KEY FEATURES -->
+        <div class="content-card">
+            <h2>🛠️ Project Architecture &amp; Key Features</h2>
+            <p>This project transforms unstructured physical records into a structured relational database schema in Microsoft Excel consisting of 3 primary worksheets:</p>
+            
+            <p><strong>1. <code>Dashboard</code> (Executive Summary &amp; Visual Analysis)</strong></p>
+            <ul>
+                <li><strong>Interactive Pivot Tables &amp; Charts:</strong> Presents visual summaries of Total Revenue, Total Orders, Units Sold (Pcs), and Average Purchase Value.</li>
+                <li><strong>Dynamic Slicers &amp; Timeline:</strong> Interactive filter buttons based on packaging variants and time ranges (Date/Month/Year).</li>
+            </ul>
+
+            <p><strong>2. <code>Data_Pesanan</code> (Raw Transactional Data)</strong></p>
+            <ul>
+                <li><strong>Automated Order ID &amp; Day Name:</strong> Automatic numbering (<code>TRX-0001</code>, etc.) and automatic extraction of day names using the <code>=TEXT(...)</code> function.</li>
+                <li><strong>Automated Customer ID:</strong> Automated customer qualification (Regular vs. Walk-in) using <code>XLOOKUP</code> and <code>ISNA</code> error handling.</li>
+                <li><strong>Dynamic Pricing:</strong> Eliminates manual price input errors by pulling data directly from <em>Master Pricing</em>.</li>
+            </ul>
+
+            <p><strong>3. <code>File_Master</code> (Reference Tables)</strong></p>
+            <ul>
+                <li>Stores reference data for packaging variants, unit prices, and registered reseller lists.</li>
+            </ul>
+        </div>
+
+        <!-- 4. KEY INSIGHTS & BUSINESS OUTCOME -->
+        <div class="content-card">
+            <h2>🎯 Business Outcome &amp; Impact</h2>
+            <ul>
+                <li>⏱️ <strong>Reduced Recapitulation Time:</strong> Cut down from <strong>2 hours to under 10 minutes per day</strong>.</li>
+                <li>🎯 <strong>100% Data Accuracy:</strong> Eliminated potential human errors in manual price and sum calculations.</li>
+                <li>📊 <strong>Data-Driven Decision Making:</strong> Provided real-time sales data visibility to help management optimize raw material inventory and production planning.</li>
+            </ul>
+
+            <a href="https://github.com/dianitadwiyanti-ux/Sales-Order-Automation-Dashboard-UMKM-Peyek-Goyang" target="_blank" rel="noopener noreferrer" class="btn-github">View Repository &amp; Documentation &rarr;</a>
+        </div>
+    </div>
+
+</body>
+</html>
