@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Dianita Dwiyanti</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* CSS RESET & VARIABLES (Monochrome Theme) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --bg-color: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --accent-color: #333333;
+            --border-color: #E0E0E0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR (FREEZE / FIXED DI ATAS) */
+        nav {
+            position: fixed; /* Membuat navbar tetap menempel saat di-scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(15, 15, 15, 0.85); /* Background gelap transparan agar teks terbaca */
+            backdrop-filter: blur(8px); /* Efek kaca buram (frosted glass) yang elegan */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #FFFFFF;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #FFFFFF;
+        }
+
+        /* HERO COVER SECTION */
+        .hero-cover {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: url('bsdrouin-network-2402637_1920.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 0 20px;
+            padding-top: 60px; /* Memberikan ruang agar tidak tertutup navbar fixed */
+        }
+
+        /* Dark Overlay untuk kontras monokrom */
+        .hero-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.75);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+        }
+
+        .hero-subtitle-top {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: #FFFFFF;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .btn-cover {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-cover:hover {
+            background: #FFFFFF;
+            color: #000000;
+            border-color: #FFFFFF;
+        }
+
+        /* ABOUT SECTION LAYOUT & BACKGROUND ABU-ABU TERANG */
+        #about {
+            background-color: #F3F4F6;
+            padding: 100px 0 80px 0; /* Padding atas ditambah sedikit agar pas saat diskroll dari menu */
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-text h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Responsif untuk layar HP/Tablet kecil */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .about-img {
+                max-width: 250px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+        /* CONTENT SECTIONS */
+        section {
+            padding: 90px 0 80px 0; /* Diberi ruang atas untuk navigasi fixed */
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--text-main);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        /* SKILLS (Monochrome tags) */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            border-color: #999999;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #F1F1F1;
+            color: var(--text-main);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            background: var(--card-bg);
+        }
+
+        .social-links {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR OVERLAY (FIXED / FREEZE DI ATAS) -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Portfolio</a>
+            <div class="nav-links">
+                <a href="#about">About Me</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO COVER SECTION -->
+    <header class="hero-cover">
+        <!-- HERO CONTENT -->
+        <div class="hero-content">
+            <div class="hero-subtitle-top">Data Engineer • Data Management • ETL / ELT</div>
+            <h1 class="hero-title">Dianita Dwiyanti</h1>
+            <p class="hero-desc">Building Single Source of Truth from Messy Data.</p>
+            <a href="#projects" class="btn-cover">Explore Portfolio &darr;</a>
+        </div>
+    </header>
+
+    <!-- ABOUT SECTION (DENGAN BACKGROUND ABU-ABU TERANG) -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <!-- Foto Profil -->
+                <div>
+                    <img src="assets/profil.jpeg" alt="Foto Profil Dianita" class="about-img">
+                </div>
+                <!-- Teks Deskripsi -->
+                <div class="about-text">
+                    <h3> Data Management &amp; Data Engineer</h3>
+                    <p>Hi! I'm Dianita Dwiyanti, a fresh graduate in Logistics Engineering from Telkom University with hands-on experience in Master Data Management, data validation, and stock reconciliation in manufacturing and MSME environments.</p>
+                    <p>I transform manual record-keeping into structured systems in Excel/WMS, building Product & Customer Master files, applying Data Validation to prevent invalid inputs, and building dashboards for operational monitoring. Detail-oriented, structured, and comfortable working with large-volume data.</p>
+                    <p>Truly value cross-functional collaboration whether working independently or alongside colleagues from diverse backgrounds to effectively achieve shared goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- SKILLS & TOOLS SECTION -->
+        <section id="skills">
+            <h2 class="section-title">Skills &amp; Tools</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Data Validation</span>
+                <span class="skill-tag">Data Quality Check</span>
+                <span class="skill-tag">Data Cleansing</span>
+                <span class="skill-tag">Data Reconciliation</span>
+                <span class="skill-tag">Data Visualization</span>
+                <span class="skill-tag">Data Transformation</span>
+                <span class="skill-tag">Excel (VLOOKUP, XLOOKUP, Pivot Table, Pivot Chart, Conditional Formatting)</span>
+                <span class="skill-tag">SQL (PostgreSQL)</span>
+                <span class="skill-tag">Python (Pandas, Numpy, Matplotlib)</span>
+                <span class="skill-tag">Power BI</span>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">Self-Project ETL & Reporting Pipeline E-Commerce SAMALARIS</h3>
+                        <p class="project-desc"> Personal Project • Sep 2026 – Oct 2026 <p>Built an end-to-end ETL pipeline to turn messy, multiple CSV files into a clean, centralized database as a Single Source of Truth for reporting.</p> 
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Power BI</span>
+                        </div>
+                    </div>
+                    <a href="projects/self-project-ETL.html" target="_blank" rel="noopener noreferrer" class="project-link">See Details &rarr;</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">Sales Automation & Master Data — MSME Peyek Goyang</h3>
+                        <p class="project-desc"> Freelance Project • Aug 2025 <p>Transformed manual record-keeping into one structured Excel system with Product & Customer Master as Single Source of Truth.</p>
+                        <div class="tags">
+                            <span class="tag">Microsoft Excel</span>
+                            <span class="tag">Data Validation</span>
+                            <span class="tag">Pivot Table</span>
+                            <span class="tag">Pivot Chart</span>
+                            <span class="tag">Pivot Slicer</span>
+
+                        </div>
+                    </div>
+                    <a href="projects/peyek_goyang.html" target="_blank" rel="noopener noreferrer" class="project-link">See Details &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER & CONTACT -->
+    <footer id="contact">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/dianita-dwiyanti" target="_blank" rel="noopener noreferrer">LinkedIn</a> &bull;
+                <a href="https://github.com/dianitadwiyanti-ux">GitHub</a> &bull;
+                <a href="mailto:dianitadwiyanti@gmail.com">Email</a>
+            </div>
+            <p>&copy; 2026 Dianita Dwiyanti. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
