@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales & Order Automation Dashboard | Dianita Dwiyanti</title>
+    <title>Sales Automation & Master Data System for MSME Peyek Goyang | Dianita Dwiyanti</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        .comparison-table {
+    width: 100%;
+    table-layout: fixed; /* Kunci agar tabel tidak meluber keluar kartu */
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.95rem;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    width: 45%;
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+    width: 55%;
+}
+
+/* Memaksa semua video & gambar di dalam tabel mengikuti lebar kolomnya */
+.comparison-table video,
+.comparison-table img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-top: 10px;
+}
+
         * {
             margin: 0;
             padding: 0;
@@ -150,76 +180,100 @@
         .btn-github:hover {
             opacity: 0.85;
         }
+
+    
     </style>
 </head>
 <body>
 
     <div class="container">
         <!-- BACK LINK TO MAIN PORTFOLIO -->
-        <a href="../WEB_UTAMA.html" class="back-link">&larr; Back to Main Portfolio</a>
+        <a href="../Portfolio.html" class="back-link">&larr; Back to Main Portfolio</a>
         
         <div class="project-header">
-            <h1>Sales &amp; Order Automation Dashboard for UMKM Peyek Goyang</h1>
+            <h1>Sales Orders Automation & Master Data System for MSME Peyek Goyang</h1>
             <div class="tags">
                 <span class="tag">Microsoft Excel</span>
-                <span class="tag">Advanced Formulas</span>
                 <span class="tag">Pivot Table &amp; Charts</span>
                 <span class="tag">XLOOKUP</span>
+                <span class="tag">Master Data Management</span>
+                <span class="tag">Data Validation</span>
             </div>
         </div>
 
         <!-- 1. BUSINESS OVERVIEW -->
         <div class="content-card">
             <h2>📌 Business Overview &amp; Problem Statement</h2>
-            <p><strong>UMKM Peyek Goyang</strong> is a micro-enterprise operating in the snack culinary sector. Prior to this project, all daily transaction recording and recapitulation workflows were done entirely manually using <strong>paper-based logbooks</strong>.</p>
+            <p><strong>UMKM Peyek Goyang</strong> is a micro-enterprise operating in the snack culinary sector. Prior to this project, all daily transaction recording was done manually and was not structured.</p>
             <p>This manual process posed several critical bottlenecks:</p>
             <ul>
-                <li><strong>High Risk of Human Error:</strong> Manually calculating total prices and order quantities led frequent calculation mistakes.</li>
-                <li><strong>Time Inefficiency:</strong> It took 2–3 hours per day just to calculate total revenue and organize daily records.</li>
-                <li><strong>Difficulty in Extracting Insights:</strong> The business owner struggled to monitor daily/monthly revenues, sales timing trends, and top-performing product variants in real-time.</li>
+                <li><strong>No Single Source of Truth:</strong> There was no Product Master & Customer Master, so product names and prices were prone to duplication and input errors.</li>
+                <li><strong>No Input Control:</strong> Manual inputs were not validated, increasing the risk of incorrect product names and price errors.</li>
+                <li><strong>Difficulty in Monitoring:</strong> The business owner struggled to monitor sales performance because data was not centralized in one structured file.</li>
             </ul>
         </div>
 
         <!-- 2. TRANSFORMATION: BEFORE VS AFTER -->
-        <div class="content-card">
-            <h2>📸 Transformation: Before vs After</h2>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Before (Manual Logbook)</th>
-                        <th>After (Automated Excel Database &amp; Dashboard)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Physical notes in paper logs, prone to damage, unstructured, and high risk of miscalculation.</td>
-                        <td>Structured relational database system in Excel, automated formulas, and interactive visual dashboards.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="content-card">
+    <h2>📸 Transformation: Before vs After</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Before (Manual Records)</th>
+                <th>After (Structured Excel System)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Manual, unstructured records, high risk of duplication &amp; price errors.
+                    <!-- Opsional: kalau mau tambah gambar Before di sini juga bisa -->
+                    <div class="after-media"><img src="../assets/before.jpeg" alt="Catatan Manual"></div>
+                </td>
+                <td>
+                    Structured relational database system in Excel, with Product Master &amp; Customer Master as Single Source of Truth, automated formulas, and interactive dashboard.
+
+                    <div class="after-media">
+                        <!-- 1. VIDEO DEMO (Pilih salah satu: file MP4 lokal ATAU embed YouTube/Drive) -->
+                        <video controls muted playsinline>
+                            <source src="../assets/demo-dashboard.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung pemutaran video.
+                        </video>
+
+                        <!-- Jika pakai YouTube/Drive, hapus tag <video> di atas dan pakai ini:
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/ID_VIDEO" allowfullscreen></iframe>
+                        </div>
+                        -->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
         <!-- 3. ARCHITECTURE & KEY FEATURES -->
         <div class="content-card">
             <h2>🛠️ Project Architecture &amp; Key Features</h2>
-            <p>This project transforms unstructured physical records into a structured relational database schema in Microsoft Excel consisting of 3 primary worksheets:</p>
+            <p>This project transforms manual records into a structured database schema in Microsoft Excel consisting of 3 primary worksheets:</p>
             
-            <p><strong>1. <code>Dashboard</code> (Executive Summary &amp; Visual Analysis)</strong></p>
+            <p><strong>1. Dashboard (Executive Summary &amp; Visual Analysis)</strong></p>
             <ul>
                 <li><strong>Interactive Pivot Tables &amp; Charts:</strong> Presents visual summaries of Total Revenue, Total Orders, Units Sold (Pcs), and Average Purchase Value.</li>
                 <li><strong>Dynamic Slicers &amp; Timeline:</strong> Interactive filter buttons based on packaging variants and time ranges (Date/Month/Year).</li>
             </ul>
 
-            <p><strong>2. <code>Data_Pesanan</code> (Raw Transactional Data)</strong></p>
+            <p><strong>2. Data_Pesanan (Raw Transactional Data)</strong></p>
             <ul>
                 <li><strong>Automated Order ID &amp; Day Name:</strong> Automatic numbering (<code>TRX-0001</code>, etc.) and automatic extraction of day names using the <code>=TEXT(...)</code> function.</li>
                 <li><strong>Automated Customer ID:</strong> Automated customer qualification (Regular vs. Walk-in) using <code>XLOOKUP</code> and <code>ISNA</code> error handling.</li>
                 <li><strong>Dynamic Pricing:</strong> Eliminates manual price input errors by pulling data directly from <em>Master Pricing</em>.</li>
             </ul>
 
-            <p><strong>3. <code>File_Master</code> (Reference Tables)</strong></p>
+            <p><strong>3. Master Data (Product Master &amp; Customer Master)</strong></p>
             <ul>
-                <li>Stores reference data for packaging variants, unit prices, and registered reseller lists.</li>
+                <li>Centralized Product Master & Customer Master as the only reference for all transactions.</li>
             </ul>
         </div>
 
@@ -227,9 +281,9 @@
         <div class="content-card">
             <h2>🎯 Business Outcome &amp; Impact</h2>
             <ul>
-                <li>⏱️ <strong>Reduced Recapitulation Time:</strong> Cut down from <strong>2 hours to under 10 minutes per day</strong>.</li>
-                <li>🎯 <strong>100% Data Accuracy:</strong> Eliminated potential human errors in manual price and sum calculations.</li>
-                <li>📊 <strong>Data-Driven Decision Making:</strong> Provided real-time sales data visibility to help management optimize raw material inventory and production planning.</li>
+                <li>⏱️ <strong>Centralized & Structured Data: </strong> Transformed manual records into one structured file with Product Master & Customer Master as Single Source of Truth.</li>
+                <li>🎯 <strong>Prevented Input Errors: </strong> Data Validation & Data Quality Check prevent product name duplication & price errors by rejecting inputs outside the master.</li>
+                <li>📊 <strong>Faster Operational Monitoring:</strong> Interactive Dashboard (Pivot + Slicer + Timeline) allows the owner to monitor sales without manual recapitulation.</li>
             </ul>
 
             <a href="https://github.com/dianitadwiyanti-ux/Sales-Order-Automation-Dashboard-UMKM-Peyek-Goyang" target="_blank" rel="noopener noreferrer" class="btn-github">View Repository &amp; Documentation &rarr;</a>
